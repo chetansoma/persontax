@@ -1,0 +1,28 @@
+
+
+
+{% block head %}
+
+<title>PersonalTax</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">PersonalTax</h1>
+
+    <div class="form">
+        <form action="/tax" method="POST">
+            <label>Enter the Salary received this year:</label>
+            <input type="text" name="sal" id="sal">
+            <br><br><label >Enter the Dividends received this year:</label>
+            <input type="text" name="div" id="div">
+            <br><br><label >Enter the Rental income received this year on all properties:</label>
+            <input type="text" name="rent" id="rent">
+            <br><br><label >Enter the Rental expenses this year on all properties:</label>
+            <input type="text" name="rent_exp" id="rent_exp">
+            <br><br><input type="submit" value="Calculate">
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -20,7 +20,10 @@ def PersonalTax():  # This is to calculate UK personal tax for year 2022/2023
         yr_allowance = 12500
         rent_tax = rent_income * .2
         rent_sal_tax = rent_tax + (sal - yr_allowance) * .2
-        tax = rent_sal_tax + (div - 2000) * .075
+        if div > 2000:
+            tax = rent_sal_tax + (div - 2000) * .075
+        if div <= 2000:
+            tax = rent_sal_tax
         return render_template('results.html', result=tax, result1=rent_income, result2=rent_tax)
 
 

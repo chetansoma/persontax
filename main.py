@@ -13,7 +13,10 @@ def PersonalTax():  # This is to calculate UK personal tax for year 2022/2023
         div = float(request.form['div'])
         rent = float(request.form['rent'])
         rent_exp = float(request.form['rent_exp'])
-        rent_income = rent - rent_exp - 640
+        if rent > 0:
+            rent_income = rent - rent_exp - 640
+        if rent == 0:
+            rent_income = rent - rent_exp
         yr_allowance = 12500
         rent_tax = rent_income * .2
         rent_sal_tax = rent_tax + (sal - yr_allowance) * .2
